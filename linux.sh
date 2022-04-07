@@ -1,10 +1,12 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+# Copyright 2022 computer-saadnj. All rights reserved.
+
 ########################################################
 #### Distro with this script : Termux ##### saad nj ####
 ########################################################
-#### Usage.......... : bash linux.sh ####
-#########################################
+#### Usage... : bash linux.sh ####
+##################################
 clear
 
 # Add some colours
@@ -88,6 +90,7 @@ echo -e """${BBlack}
 }
 
 # info
+echo "All the dependencies will be installed automatically when you run $0 for the first time." ;sleep 2;clear
 BAN
 sleep 1
 printf "${white}Tool Name : ${green}kali${white}-${green}linux\n";sleep .5
@@ -185,6 +188,9 @@ else
 		if [ ! -d ${folder}kali ];then
 			mkdir -p ${folder}kali
 		fi
+		if [ ! -f $v2 ];then
+			echo `date +%m|cut -c2-2`
+		fi
 		Update
 		printf "\n${cyan}[*] Checking package  dependencies\n\n${white}";sleep 1
 		echo     "Essential tools: checking...";sleep 1.5
@@ -202,7 +208,7 @@ else
 				blog="not-found";fun2
 			fi
 			sleep 1;clear
-			col='\e[1;32m' nam='of' blog='found' ;fun2  #compl=4
+			col='\e[1;32m' nam='of' blog='found' ;fun2
 			if [ $t == 4 ];then
 				printf "\nall tools installed\n------------------------\n\n";sleep 1
 				echo "[i] Successfully done / completed :) " ; sleep 1
@@ -318,12 +324,13 @@ Use this tool for educational purpose only
 			}
 			clear
 			if [[ \$ask -eq 1 ]];then
+				#Check if the password
 				tm=0
 				banner
 				while :
 				do
 					read -p "[!] password for kali-linux: " pas
-					#Check if the password
+					pas=`echo \$pas|tr [A-Z] [a-z]`
 					if [ "\$pas" == \$(cat .pas) ];then
 						BWhite='\033[1;34m'
 						clear;banner
@@ -446,11 +453,11 @@ bash
 				4) termux-open https://www.instagram.com/saad.nj1 ;;
 				5) termux-open https://www.twitter.com/ ;;
 				6) termux-open https://github.com/saadma3lomat/ ;;
-				*) echo "incorrect choise" ;;
+				*) echo "Invalid option, try again!" && sleep 2 ;;
 				esac
 				bash
 			else
-				bash
+				echo "Invalid option, try again!";sleep 2;bash
 			fi
 			comm
 			# making executable
@@ -495,7 +502,7 @@ bash
 
 				# removing image file
 				echo -e "${cyan}Clean and remove kali-rootfs.tar.xz ${ncolor}for some space"
-				#rm $hoME/kali-rootfs.tar.xz
+				rm $hoME/kali-rootfs.tar.xz
 				apt-get clean
 				echo
 			else
