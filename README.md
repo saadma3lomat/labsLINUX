@@ -1,5 +1,5 @@
 # [ Screenshot ]
-![logo](https://github.com/saadma3lomat/kaliLINUX/blob/main/SaadNJ.jpg)
+![logo](https://github.com/saadma3lomat/labsLINUX/blob/main/22.png)
 
 # [ Installation ]
 ```
@@ -7,11 +7,11 @@ $ apt-get update && apt-get upgrade -y
 
 $ apt-get install git -y
 
-$ git clone https://github.com/saadma3lomat/kaliLINUX
+$ git clone https://github.com/saadma3lomat/labsLINUX
 
-$ cd kaliLINUX
+$ cd labsLINUX
 
-$ bash linux.sh
+$ bash install.sh
 ```
 
 # [ Running ]
